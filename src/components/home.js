@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 function home(props) {
-  console.log(props, "PROPS");
   const { first_name, last_name } = props.auth;
   return (
     <div>
