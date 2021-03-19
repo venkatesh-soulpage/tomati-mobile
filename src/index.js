@@ -10,17 +10,16 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/stylesheets/main.scss";
 // sentry
-// import * as Sentry from "@sentry/browser";
+import * as Sentry from "@sentry/react";
 // dotenv
 require("dotenv").config();
 
-// Sentry.init({
-// dsn: "https://b8b964f42f2b40bfaf6d953ed9991b17@sentry.io/1535251"
-// });
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRY_DSN,
+});
 
 // Creating REDUX store with the required configurations
 const store = configureStore();
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
