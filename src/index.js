@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+// Redux imports and configuring store
+import { Provider } from "react-redux";
+import configureStore from "./store";
+// Component and Service Worker
+import App from "./containers/App";
+import * as serviceWorker from "./serviceWorker";
+// Style Sheets
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/stylesheets/main.scss";
+// sentry
+// import * as Sentry from "@sentry/browser";
+// dotenv
+require("dotenv").config();
+
+// Sentry.init({
+// dsn: "https://b8b964f42f2b40bfaf6d953ed9991b17@sentry.io/1535251"
+// });
+
+// Creating REDUX store with the required configurations
+const store = configureStore();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+serviceWorker.unregister();
