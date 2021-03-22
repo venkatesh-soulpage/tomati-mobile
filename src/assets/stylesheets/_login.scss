@@ -1,0 +1,21 @@
+.login-style {
+  height: 100vh;
+}
+
+.show-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  border: 1px solid #ced4da;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  border-left: "none";
+}
+
+.btn-blue {
+  background-color: #32c5f4;
+  color: #fff;
+}
