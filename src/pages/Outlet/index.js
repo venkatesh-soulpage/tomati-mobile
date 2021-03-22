@@ -347,12 +347,6 @@ const Index = (props) => {
                     {items_list.map((item, index) => {
                       const inputRef = React.createRef();
 
-                      //   const handleMinus = () => {
-                      //     inputRef.current.handleMinus();
-                      //   };
-                      //   const handlePlus = () => {
-                      //     inputRef.current.handlePlus();
-                      //   };
                       return (
                         <div className="menu-div" key={index}>
                           <div>

@@ -28,22 +28,9 @@ function App(props) {
     <Router history={history}>
       <Header />
       <Switch>
-        {/* <Route path="/" name="home" exact component={Home} />
-        <Route exact path="/info" name="info" component={Info} /> */}
         <AuthRoute path="/" exact component={Login} />
-        <PrivateRoute
-          path="/scanner"
-          component={QrScanner}
-          // scopesRequired={['AGENCY', 'OUTLET']}
-          // rolesRequired={['OWNER', 'MANAGER', 'STAFF', 'WAITER']}
-        />
-        <PrivateRoute
-          exact
-          path="/outlet"
-          component={Outlet}
-          // scopesRequired={[]}
-          // rolesRequired={[]}
-        />
+        <PrivateRoute path="/scanner" component={QrScanner} />
+        <PrivateRoute exact path="/outlet" component={Outlet} />
       </Switch>
     </Router>
   );
