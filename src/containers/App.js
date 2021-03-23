@@ -24,13 +24,24 @@ function App(props) {
       props.dispatch(Action.handleIsUserAuthenticated(false));
     }
   }, [sessionStorage.getItem("token")]);
+  React.useEffect(() => {
+    //checking role of user logged in
+    if (sessionStorage.getItem("role") === "WAITER") {
+      if (props?.auth?.userData?.outlet?.outletvenue_id) {
+        history.push({
+          pathname: "outlet",
+          search: `outlet_venue=${props?.auth?.userData?.outlet?.outletvenue_id}`,
+        });
+      }
+    }
+  }, [props?.auth?.userData]);
   return (
     <Router history={history}>
       <Header />
       <Switch>
         <AuthRoute path="/" exact component={Login} />
         <PrivateRoute path="/scanner" component={QrScanner} />
-        <PrivateRoute exact path="/outlet" component={Outlet} />
+        <Route exact path="/outlet" component={Outlet} />
       </Switch>
     </Router>
   );

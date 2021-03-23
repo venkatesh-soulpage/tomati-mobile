@@ -4,7 +4,6 @@ import history from "utils/history";
 
 export function getOutlet(id) {
   return async (dispatch) => {
-    console.log(id, "Hitted");
     try {
       dispatch(fetchRequest());
       const responseData = await OutletService.getOutlet(id);

@@ -3,14 +3,12 @@ import QrReader from "react-qr-reader";
 
 const index = (props) => {
   const handleScan = (data) => {
+    //redirection after scanning qr code
     if (data) {
-      //   console.log(data.slice(4));
-      window.location.href = data.slice(4);
+      window.location.href = data.split(" ")[1];
     }
   };
-  const handleError = (data) => {
-    console.log(data);
-  };
+  const handleError = (data) => {};
   return (
     <div>
       <QrReader

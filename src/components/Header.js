@@ -18,7 +18,6 @@ const Header = (props) => {
   const [open, setOpen] = React.useState(false);
 
   const { isAuthenticated } = props?.auth;
-  console.log(isAuthenticated);
 
   return (
     <div style={{ padding: "10px" }}>

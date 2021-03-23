@@ -76,7 +76,6 @@ export function getUserData() {
   return async (dispatch) => {
     try {
       const responseData = await AuthService.getUserData();
-      dispatch(setAuthTokenInSession("isAdmin", responseData.is_admin));
       dispatch(receiveUserData(responseData));
     } catch (errorData) {}
   };
