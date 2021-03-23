@@ -5,8 +5,11 @@ import * as Action from "_actions";
 // Router
 import { withRouter, useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import Currency from "assets/images/ngn_currency.svg";
 import _ from "lodash";
+import CoverImage from "./CoverImage";
+import Level1 from "./Level1";
+import Level2 from "./Level2";
+import Level3 from "./Level3";
 
 const Index = (props) => {
   const [state, setState] = React.useState({
@@ -103,57 +106,14 @@ const Index = (props) => {
         <div>
           {cover_image ? (
             <>
-              <img
-                alt={name}
-                style={{
-                  maxWidth: "100%",
-                  minHeight: "250px",
-                  width: "100%",
-                }}
-                src={cover_image}
+              <CoverImage
+                cover_image={cover_image}
+                logo_img={logo_img}
+                name={name}
               />
-              <img
-                alt={name}
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  top: 125,
-                  left: 25,
-                  zIndex: 999,
-                  position: "absolute",
-                  borderRadius: "50%",
-                  padding: 3,
-                  background: "#fff",
-                }}
-                src={logo_img}
-              />
-              <div
-                style={{
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                <div
-                  className="heading-style"
-                  style={{
-                    height: "auto",
-                    width: "200px",
-                    top: 150,
-                    left: 150,
-                    zIndex: 999,
-                    position: "absolute",
-                    backdropFilter: "brightness(20%)",
-                    overflow: "inherit",
-                    textOverflow: "inherit",
-                  }}
-                >
-                  {name}
-                </div>
-              </div>
             </>
           ) : (
-            <div>No Image</div>
+            <div className="no-image">No Image</div>
           )}
           <div style={{ padding: "10px", backgroundColor: "#030303" }}>
             <div className="heading-style">{name}</div>
@@ -191,175 +151,25 @@ const Index = (props) => {
               <>
                 <div style={{ width: "100%", display: "block" }}>
                   {currentLevel === "level1" ? (
-                    <p>
-                      {outlet_menu.map((item, index) => (
-                        <Button
-                          key={index}
-                          style={{
-                            width: "100%",
-                            fontWeight: "bold",
-                            margin: "2px",
-                            marginTop: "10px",
-                            color: "#575757",
-                            background: "#e5e5ea",
-                            border: "1px solid #e5e5ea",
-                          }}
-                          onClick={() => {
-                            setState((state) => ({
-                              ...state,
-                              outlet_category: item,
-                              currentLevel: "level2",
-                            }));
-                          }}
-                        >
-                          {item}
-                        </Button>
-                      ))}
-                    </p>
+                    <Level1
+                      outlet_menu={outlet_menu}
+                      setState={setState}
+                      state={state}
+                    />
                   ) : currentLevel === "level2" ? (
-                    <p>
-                      {product_menu.map((item, index) => (
-                        <Button
-                          key={index}
-                          style={{
-                            width: "100%",
-                            fontWeight: "bold",
-                            margin: "2px",
-                            marginTop: "10px",
-                            color: "#575757",
-                            background: "#e5e5ea",
-                            border: "1px solid #e5e5ea",
-                          }}
-                          appearance="default"
-                          onClick={() =>
-                            setState((state) => ({
-                              ...state,
-                              product_category: item,
-                              currentLevel: "level3",
-                            }))
-                          }
-                        >
-                          {item}
-                        </Button>
-                      ))}
-                      <Button
-                        appearance="primary"
-                        style={{
-                          width: "100%",
-                          marginTop: "10px",
-                        }}
-                        onClick={() =>
-                          setState((state) => ({
-                            ...state,
-                            menu_category: null,
-                            product_category: null,
-                            outlet_category: null,
-                            currentLevel: "level1",
-                          }))
-                        }
-                      >
-                        Back
-                      </Button>
-                    </p>
+                    <Level2
+                      product_menu={product_menu}
+                      setState={setState}
+                      state={state}
+                    />
                   ) : currentLevel === "level3" ? (
-                    <div>
-                      <div className="w-100">
-                        <div className="tag-group">
-                          {_.without(
-                            _.map(
-                              _.uniqBy(filtered_menu, "menu_category"),
-                              "menu_category"
-                            ),
-                            "",
-                            null
-                          ).map((item, index) => (
-                            <>
-                              <Button
-                                key={index}
-                                style={
-                                  item === menu_category
-                                    ? {
-                                        backgroundColor: "#3498ff",
-                                        color: "#fff",
-                                        borderRadius: "42px",
-                                        marginRight: "10px",
-                                        fontWeight: "bold",
-                                      }
-                                    : {
-                                        borderRadius: "42px",
-                                        marginRight: "10px",
-                                        fontWeight: "bold",
-                                        color: "#575757",
-                                        background: "#e5e5ea",
-                                        border: "1px solid #e5e5ea",
-                                      }
-                                }
-                                appearance="default"
-                                onClick={() =>
-                                  item !== menu_category
-                                    ? setState((state) => ({
-                                        ...state,
-                                        menu_category: item,
-                                      }))
-                                    : setState((state) => ({
-                                        ...state,
-                                        menu_category: null,
-                                      }))
-                                }
-                              >
-                                {item}
-                              </Button>
-                            </>
-                          ))}
-                        </div>
-                      </div>
-                      <Button
-                        appearance="primary"
-                        style={{
-                          width: "100%",
-                          borderRadius: "0px",
-                          zIndex: "0",
-                          marginTop: "10px",
-                        }}
-                        onClick={() =>
-                          setState((state) => ({
-                            ...state,
-                            menu_category: null,
-                            product_category: null,
-                            currentLevel: "level2",
-                          }))
-                        }
-                      >
-                        Back
-                      </Button>
-                      <div
-                        style={{
-                          backgroundColor: "#030303",
-                          paddingBottom: "30px",
-                        }}
-                      >
-                        {items_list.map((item, index) => {
-                          const inputRef = React.createRef();
-
-                          return (
-                            <div className="menu-div" key={index}>
-                              <div>
-                                <div className="text-style">{item.name}</div>
-
-                                <div
-                                  className="text-style2"
-                                  size="13px"
-                                  color="#ffffff"
-                                  weight="normal"
-                                >
-                                  {item.description}
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <Level3
+                      filtered_menu={filtered_menu}
+                      menu_category={menu_category}
+                      setState={setState}
+                      state={state}
+                      items_list={items_list}
+                    />
                   ) : null}
                 </div>
               </>
