@@ -20,7 +20,7 @@ const Header = (props) => {
   const { isAuthenticated } = props?.auth;
 
   return (
-    <div style={{ padding: "10px" }}>
+    <div className="header-style">
       <div
         id="mySidenav"
         className="sidenav"
@@ -73,7 +73,7 @@ const Header = (props) => {
           )}
         </Nav>
         <Nav>
-          <Link to="/contact">
+          <a target="_blank" href="https://wa.me/message/HGRXRF5QIYCWH1">
             <Nav.Item
               onClick={() => {
                 setOpen(false);
@@ -85,7 +85,7 @@ const Header = (props) => {
               <AiFillInfoCircle className="mr-4 mt-n1" />
               Contact Support
             </Nav.Item>
-          </Link>
+          </a>
         </Nav>
         <Nav>
           {isAuthenticated ? (

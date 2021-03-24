@@ -105,6 +105,12 @@ $danger: #e0475b;
 .nav {
   padding: 10px !important;
 }
+
+.header-style {
+  padding: 10px;
+  height: auto;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;

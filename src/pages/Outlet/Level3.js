@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import _ from "lodash";
+import Currency from "assets/images/ngn_currency.svg";
 
 const Level3 = ({
   filtered_menu,
@@ -97,6 +98,27 @@ const Level3 = ({
                 >
                   {item.description}
                 </div>
+              </div>
+              <div>
+                <img
+                  src={Currency}
+                  style={{
+                    width: "12px",
+                    filter: "invert(1)",
+                    marginTop: "-3px",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginLeft: "3px",
+                    marginTop: "3px",
+                  }}
+                >
+                  {" "}
+                  {item.price}
+                </span>
               </div>
             </div>
           );

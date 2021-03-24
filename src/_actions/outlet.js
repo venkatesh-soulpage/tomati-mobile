@@ -12,7 +12,8 @@ export function getOutlet(id) {
         payload: responseData,
       });
     } catch (errorData) {
-      dispatch(fetchError());
+      console.log(errorData);
+      dispatch(fetchError(errorData));
     }
   };
 }
@@ -21,8 +22,9 @@ export function fetchRequest() {
     type: ActionTypes.FETCH_REQUEST,
   };
 }
-export function fetchError() {
+export function fetchError(error) {
   return {
     type: ActionTypes.FETCH_ERROR,
+    payload: error,
   };
 }

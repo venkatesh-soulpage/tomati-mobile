@@ -2,7 +2,8 @@ import * as ActionTypes from "constants/ActionTypes";
 
 var initialState = {
   isFetching: null,
-  outlet: {},
+  outlet: null,
+  error: null,
 };
 
 export default function authReducer(state = initialState, action) {
@@ -12,6 +13,17 @@ export default function authReducer(state = initialState, action) {
         ...state,
         outlet: action.payload,
         isFetching: false,
+      };
+    case ActionTypes.FETCH_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false,
+      };
+    case ActionTypes.FETCH_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
       };
 
     default:

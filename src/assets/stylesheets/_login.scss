@@ -1,5 +1,5 @@
 .login-style {
-  height: 100vh;
+  height: 90vh;
 }
 
 .show-button {
@@ -18,4 +18,10 @@
 .btn-blue {
   background-color: #32c5f4;
   color: #fff;
+}
+
+.form-control:focus {
+  outline: 0 !important;
+  box-shadow: none;
+  border: 1px solid #ced4da;
 }
