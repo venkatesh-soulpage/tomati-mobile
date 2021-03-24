@@ -26,10 +26,11 @@ function App(props) {
   }, [sessionStorage.getItem("token")]);
   React.useEffect(() => {
     //checking role of user logged in
+
     if (sessionStorage.getItem("role") === "WAITER") {
       if (props?.auth?.userData?.outlet?.outletvenue_id) {
         history.push({
-          pathname: "outlet",
+          pathname: "/outlet",
           search: `outlet_venue=${props?.auth?.userData?.outlet?.outletvenue_id}`,
         });
       }

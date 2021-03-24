@@ -38,14 +38,15 @@ const Index = (props) => {
     props.dispatch(Action.getOutlet(query.get("outlet_venue")));
   }, []);
 
-  if (props?.outlet?.isFetching) {
+  const { outlet } = props.outlet;
+
+  if (props?.outlet?.isFetching || !outlet) {
     return <Loading textSecondary={true} />;
   }
 
   if (props?.outlet?.error) {
     return <div>Invalid Venue</div>;
   }
-  const { outlet } = props.outlet;
 
   if (!outlet?.is_venue_active) {
     return <div> Menu is inactive. Please contact restaurant manager</div>;
@@ -105,8 +106,6 @@ const Index = (props) => {
   if (menu_category) {
     items_list = _.filter(filtered_menu, { product_category, menu_category });
   }
-
-  console.log(props);
 
   return (
     <div style={{ height: "100vh", backgroundColor: "#030303" }}>
