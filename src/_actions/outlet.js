@@ -12,7 +12,6 @@ export function getOutlet(id) {
         payload: responseData,
       });
     } catch (errorData) {
-      console.log(errorData);
       dispatch(fetchError(errorData));
     }
   };

@@ -12,26 +12,12 @@ function AuthRoute({ component: Component, ...rest }) {
     sessionStorage.setItem("role", role);
   }
 
-  // const { outletvenue_id, outletevent_id } = user.outlet;
-  //       history.push({
-  //         pathname: '/outlet',
-  //         search: outletevent_id
-  //           ? `outlet_event=${outletevent_id}`
-  //           : `outlet_venue=${outletvenue_id}`,
-  //       });
   return (
     <Route
       {...rest}
       render={(props) =>
         sessionStorage.getItem("token") &&
-        sessionStorage.getItem("role") === "WAITER" ? (
-          <Redirect
-            to={{
-              pathname: "/outlet",
-              state: { from: props.location },
-            }}
-          />
-        ) : sessionStorage.getItem("token") ? (
+        sessionStorage.getItem("role") !== "WAITER" ? (
           <Redirect
             to={{
               pathname: "/scanner",

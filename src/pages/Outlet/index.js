@@ -106,8 +106,6 @@ const Index = (props) => {
     items_list = _.filter(filtered_menu, { product_category, menu_category });
   }
 
-  console.log(props);
-
   return (
     <div style={{ height: "100vh", backgroundColor: "#030303" }}>
       <div>

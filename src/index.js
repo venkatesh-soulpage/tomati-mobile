@@ -26,10 +26,7 @@ Sentry.init({
 
 // Creating REDUX store with the required configurations
 const store = configureStore();
-console.log(
-  process.env.REACT_APP_SENTRY_DSN,
-  "process.env.REACT_APP_SENTRY_DSN"
-);
+
 ReactDOM.render(
   <Provider store={store}>
     <Sentry.ErrorBoundary fallback={"An error has occurred"}>
