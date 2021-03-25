@@ -22,23 +22,10 @@ const Level3 = ({
             <>
               <Button
                 key={index}
-                style={
+                className={
                   item === menu_category
-                    ? {
-                        backgroundColor: "#3498ff",
-                        color: "#fff",
-                        borderRadius: "42px",
-                        marginRight: "10px",
-                        fontWeight: "bold",
-                      }
-                    : {
-                        borderRadius: "42px",
-                        marginRight: "10px",
-                        fontWeight: "bold",
-                        color: "#575757",
-                        background: "#e5e5ea",
-                        border: "1px solid #e5e5ea",
-                      }
+                    ? "btn-blue-filter"
+                    : "btn-white-filter"
                 }
                 appearance="default"
                 onClick={() =>
@@ -61,12 +48,7 @@ const Level3 = ({
       </div>
       <Button
         appearance="primary"
-        style={{
-          width: "100%",
-          borderRadius: "0px",
-          zIndex: "0",
-          marginTop: "10px",
-        }}
+        className="w-100 mt-3"
         onClick={() =>
           setState((state) => ({
             ...state,
@@ -78,47 +60,18 @@ const Level3 = ({
       >
         Back
       </Button>
-      <div
-        style={{
-          backgroundColor: "#030303",
-          paddingBottom: "30px",
-        }}
-      >
+      <div className="menu-style">
         {items_list.map((item, index) => {
           return (
             <div className="menu-div" key={index}>
               <div>
                 <div className="text-style">{item.name}</div>
 
-                <div
-                  className="text-style2"
-                  size="13px"
-                  color="#ffffff"
-                  weight="normal"
-                >
-                  {item.description}
-                </div>
+                <div className="text-style2">{item.description}</div>
               </div>
               <div>
-                <img
-                  src={Currency}
-                  style={{
-                    width: "12px",
-                    filter: "invert(1)",
-                    marginTop: "-3px",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: "600",
-                    marginLeft: "3px",
-                    marginTop: "3px",
-                  }}
-                >
-                  {" "}
-                  {item.price}
-                </span>
+                <img alt="Currency" src={Currency} className="currency-style" />
+                <span className="menu-item-style"> {item.price}</span>
               </div>
             </div>
           );

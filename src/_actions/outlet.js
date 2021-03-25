@@ -1,6 +1,5 @@
 import * as ActionTypes from "constants/ActionTypes";
 import OutletService from "services/outlet";
-import history from "utils/history";
 
 export function getOutlet(id) {
   return async (dispatch) => {
