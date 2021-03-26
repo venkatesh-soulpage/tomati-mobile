@@ -23,7 +23,7 @@ const Index = (props) => {
         delay={300}
         onError={() => handleError()}
         onScan={(data) => handleScan(data)}
-        style={{ width: "100%" }}
+        className="w-100"
       />
       {error && (
         <AlertMessage

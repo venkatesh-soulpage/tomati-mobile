@@ -6,8 +6,6 @@ import history from "utils/history";
 import { connect } from "react-redux";
 import * as Action from "_actions";
 // Layouts
-import Home from "components/home";
-import Info from "components/info";
 import PrivateRoute from "./PrivateRoute";
 import AuthRoute from "./AuthRoute";
 import Login from "pages/auth/Login";
@@ -37,14 +35,16 @@ function App(props) {
     }
   }, [props?.auth?.userData]);
   return (
-    <Router history={history}>
-      <Header />
-      <Switch>
-        <AuthRoute path="/" exact component={Login} />
-        <PrivateRoute path="/scanner" component={QrScanner} />
-        <Route exact path="/outlet" component={Outlet} />
-      </Switch>
-    </Router>
+    <div className="h-100">
+      <Router history={history}>
+        <Header />
+        <Switch>
+          <AuthRoute path="/" exact component={Login} props={props} />
+          <PrivateRoute path="/scanner" component={QrScanner} />
+          <Route exact path="/outlet" component={Outlet} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
