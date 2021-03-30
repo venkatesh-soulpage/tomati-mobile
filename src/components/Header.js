@@ -20,25 +20,31 @@ const Header = (props) => {
   const { isAuthenticated } = props?.auth;
 
   return (
-    <div className="header-style">
-      <div
-        id="mySidenav"
-        className="sidenav"
-        style={open ? { width: "90%" } : { width: 0 }}
-      >
+    <>
+      <div id="mySidenav" className={open ? "sidenav w-90" : "sidenav"}>
         <span className="closebtn" onClick={() => setOpen(false)}>
           &times;
         </span>
         <Link to="/">
-          <img src={Logo} className="logo" />
+          <img src={Logo} alt="logo" height="35px" width="auto" />
         </Link>
         <Nav>
-          <Link to="/">
+          <Link
+            to={
+              !isAuthenticated
+                ? "/"
+                : sessionStorage.getItem("role") !== "WAITER"
+                ? "/scanner"
+                : {
+                    pathname: "/outlet",
+                    search: `outlet_venue=${props?.outlet?.outlet?.id}`,
+                  }
+            }
+          >
             <Nav.Item
               onClick={() => {
                 setOpen(false);
               }}
-              eventKey="/"
             >
               <AiFillHome className="mr-4 mt-n1" />
               Home
@@ -52,7 +58,6 @@ const Header = (props) => {
                 onClick={() => {
                   setOpen(false);
                 }}
-                eventKey="/"
               >
                 <AiOutlineScan className="mr-4 mt-n1" />
                 Scanner
@@ -64,7 +69,6 @@ const Header = (props) => {
                 onClick={() => {
                   setOpen(false);
                 }}
-                eventKey="/"
               >
                 <AiOutlineUser className="mr-4 mt-n1" />
                 Login
@@ -78,9 +82,6 @@ const Header = (props) => {
               onClick={() => {
                 setOpen(false);
               }}
-              eventKey="/"
-              icon="home"
-              a
             >
               <AiFillInfoCircle className="mr-4 mt-n1" />
               Contact Support
@@ -97,8 +98,6 @@ const Header = (props) => {
                   props.history.push("/");
                   props.history.go();
                 }}
-                eventKey="/"
-                icon="home"
               >
                 <AiOutlineLogout className="mr-4 mt-n1" />
                 Logout
@@ -107,22 +106,22 @@ const Header = (props) => {
           ) : null}
         </Nav>
       </div>
-      <div className="d-flex align-items-center justify-content-between">
+      <div className="d-flex align-items-center justify-content-between header-style">
         <div className="menu" onClick={() => setOpen(true)}>
           &#9776;
         </div>
-        <div style={{ fontSize: "30px", cursor: "pointer" }}>
+        <div>
           {" "}
-          <img src={Logo} className="logo" />
+          <img src={Logo} alt="logo" height="30px" width="auto" />
         </div>
-        <div></div>
+        <div />
       </div>
-    </div>
+    </>
   );
 };
 
 function mapStateToProps(state) {
-  return { auth: state.auth };
+  return { auth: state.auth, outlet: state.outlet };
 }
 
 export default withRouter(connect(mapStateToProps)(Header));

@@ -8,15 +8,7 @@ const Level1 = ({ outlet_menu, setState, state }) => {
         {outlet_menu.map((item, index) => (
           <Button
             key={index}
-            style={{
-              width: "100%",
-              fontWeight: "bold",
-              margin: "2px",
-              marginTop: "10px",
-              color: "#575757",
-              background: "#e5e5ea",
-              border: "1px solid #e5e5ea",
-            }}
+            className="btn-white w-100 mt-2"
             onClick={() => {
               setState((state) => ({
                 ...state,

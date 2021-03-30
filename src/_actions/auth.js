@@ -1,8 +1,6 @@
 import { AuthService } from "services";
 import axios from "axios";
 import * as ActionTypes from "constants/ActionTypes";
-import history from "utils/history";
-import cookie from "js-cookie";
 
 /* ================================================================== */
 /* User Login */

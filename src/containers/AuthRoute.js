@@ -4,11 +4,11 @@ import { Route, Redirect } from "react-router-dom";
 // Redux imports
 import { decode } from "utils/tokenUtils";
 
-function AuthRoute({ component: Component, ...rest }) {
+function AuthRoute({ component: Component, props, ...rest }) {
   const token = sessionStorage.getItem("token");
   if (token) {
     const decoded = decode(token);
-    let { scope, role, is_age_verified } = decoded;
+    let { role } = decoded;
     sessionStorage.setItem("role", role);
   }
 

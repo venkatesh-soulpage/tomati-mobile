@@ -8,15 +8,7 @@ const Level2 = ({ product_menu, setState, state }) => {
         {product_menu.map((item, index) => (
           <Button
             key={index}
-            style={{
-              width: "100%",
-              fontWeight: "bold",
-              margin: "2px",
-              marginTop: "10px",
-              color: "#575757",
-              background: "#e5e5ea",
-              border: "1px solid #e5e5ea",
-            }}
+            className="btn-white w-100 mt-2"
             appearance="default"
             onClick={() =>
               setState((state) => ({
@@ -31,10 +23,7 @@ const Level2 = ({ product_menu, setState, state }) => {
         ))}
         <Button
           appearance="primary"
-          style={{
-            width: "100%",
-            marginTop: "10px",
-          }}
+          className="w-100 mt-3"
           onClick={() =>
             setState((state) => ({
               ...state,

@@ -52,15 +52,7 @@ const Index = (props) => {
     return <div> Menu is inactive. Please contact restaurant manager</div>;
   }
 
-  const {
-    name,
-    description,
-    menu,
-    cover_image,
-    location,
-    phone_number,
-    logo_img,
-  } = outlet;
+  const { name, description, menu, cover_image, logo_img, location } = outlet;
 
   // Outlet Menu Category
   const outlet_menu = _.without(
@@ -108,7 +100,7 @@ const Index = (props) => {
   }
 
   return (
-    <div style={{ height: "100vh", backgroundColor: "#030303" }}>
+    <div className="login-style black-background ">
       <div>
         {cover_image ? (
           <>
@@ -121,23 +113,14 @@ const Index = (props) => {
         ) : (
           <div className="no-image">No Image</div>
         )}
-        <div style={{ padding: "10px", backgroundColor: "#030303" }}>
+        <div className="p-2">
           <div className="heading-style">{name}</div>
 
           {!showMenu ? (
             <>
-              {/* <div style={{ color: "#fff" }}>{location.name}</div> */}
-
+              <div className="text-white mt-5">{location.name}</div>
               <hr className="hr" />
-              <p
-                style={{
-                  marginBottom: "30px",
-                  color: "#fff",
-                  fontWeight: "500",
-                }}
-              >
-                {description}
-              </p>
+              <p className="description-style">{description}</p>
 
               <Button
                 className="btn-v"
@@ -155,7 +138,7 @@ const Index = (props) => {
             </>
           ) : (
             <>
-              <div style={{ width: "100%", display: "block" }}>
+              <div className="d-block w-100 mt-5">
                 {
                   {
                     level1: (
@@ -188,7 +171,6 @@ const Index = (props) => {
           )}
         </div>
       </div>
-      )
     </div>
   );
 };

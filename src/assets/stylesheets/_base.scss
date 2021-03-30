@@ -52,11 +52,6 @@ input[type="checkbox"]:after {
   background-color: #e0475b !important;
 }
 
-.min-height {
-  height: 100vh;
-  min-height: 600px;
-}
-
 $dark: #2c3a56;
 $danger: #e0475b;
 
@@ -93,10 +88,6 @@ $danger: #e0475b;
   font-weight: 100;
   color: grey;
 }
-.logo {
-  height: 35px;
-  width: auto;
-}
 .menu {
   margin-left: 10px;
   font-size: "30px";
@@ -107,8 +98,11 @@ $danger: #e0475b;
 }
 
 .header-style {
-  padding: 10px;
-  height: auto;
+  height: 8vh;
+}
+
+.w-90 {
+  width: 90%;
 }
 
 @media screen and (max-height: 450px) {
