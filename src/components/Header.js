@@ -7,12 +7,14 @@ import {
   AiOutlineLogout,
   AiOutlineUser,
 } from "react-icons/ai";
-import Logo from "assets/images/tomatiapp.png";
+import Logo from "assets/images/Logo.svg";
+import Icon from "assets/images/favicon.ico";
 // Redux
 import { connect } from "react-redux";
 // Router
 import { withRouter, Link } from "react-router-dom";
 import * as Action from "_actions";
+import VersioningMenu from "components/VersioningMenu";
 
 const Header = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -105,15 +107,35 @@ const Header = (props) => {
             </Link>
           ) : null}
         </Nav>
+        {/* <VersioningMenu /> */}
       </div>
-      <div className="d-flex align-items-center justify-content-between header-style">
+      <div
+        className={
+          "d-flex align-items-center justify-content-between " +
+          (props?.location?.pathname === "/outlet" ? "ht-35" : "header-style")
+        }
+      >
         <div className="menu" onClick={() => setOpen(true)}>
           &#9776;
         </div>
         <div>
-          {" "}
-          <img src={Logo} alt="logo" height="30px" width="auto" />
+          {props?.location?.pathname === "/outlet" ? (
+            <a className="color-link" href="https://tomati.app/">
+              <small className="fs-11">Powered by &nbsp;</small>
+              <img
+                src={Icon}
+                alt="icon"
+                className="d-inline-block align-top mt-1"
+                height="17px"
+                width="auto"
+              />
+              Tomati.app
+            </a>
+          ) : (
+            <img src={Logo} alt="logo" height="30px" width="auto" />
+          )}
         </div>
+
         <div />
       </div>
     </>

@@ -96,7 +96,10 @@ $danger: #e0475b;
 .nav {
   padding: 10px !important;
 }
-
+.version-style {
+  position: absolute;
+  bottom: 10 !important;
+}
 .header-style {
   height: 8vh;
 }

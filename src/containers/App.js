@@ -37,7 +37,7 @@ function App(props) {
   return (
     <div className="h-100">
       <Router history={history}>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <AuthRoute path="/" exact component={Login} props={props} />
           <PrivateRoute path="/scanner" component={QrScanner} />
