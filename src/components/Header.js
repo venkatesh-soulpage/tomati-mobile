@@ -8,6 +8,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import Logo from "assets/images/Logo.svg";
+import LogoWhite from "assets/images/LogoWhite.svg";
 import Icon from "assets/images/favicon.ico";
 // Redux
 import { connect } from "react-redux";
@@ -24,13 +25,15 @@ const Header = (props) => {
   return (
     <>
       <div id="mySidenav" className={open ? "sidenav w-90" : "sidenav"}>
-        <span className="closebtn" onClick={() => setOpen(false)}>
+        <span className="closebtn text-white" onClick={() => setOpen(false)}>
           &times;
         </span>
-        <div className="nav-link">
-          <Link to="/">
-            <img src={Logo} alt="logo" height="35px" width="auto" />
-          </Link>
+        <div className="nav-link p-0">
+          <div className="bg-dark">
+            <Link to="/">
+              <img src={LogoWhite} alt="logo" height="35px" width="auto" />
+            </Link>
+          </div>
           <Nav>
             <Link
               to={
@@ -127,11 +130,11 @@ const Header = (props) => {
               <img
                 src={Icon}
                 alt="icon"
-                className="d-inline-block align-top mt-1"
-                height="17px"
+                className="d-inline-block mt-1"
+                height="15px"
                 width="auto"
               />
-              <span className="text-white"> Tomati.app</span>
+              <small className="fs-11 text-white"> Tomati.app</small>
             </a>
           ) : (
             <img src={Logo} alt="logo" height="30px" width="auto" />

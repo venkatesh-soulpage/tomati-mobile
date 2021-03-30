@@ -127,13 +127,22 @@ const Index = (props) => {
 
               <Button
                 className="btn-v"
-                onClick={() =>
-                  setState((state) => ({
-                    ...state,
-                    showMenu: true,
-                    currentLevel: "level1",
-                  }))
-                }
+                onClick={() => {
+                  if (!filtered_menu[0].outlet_category) {
+                    setState((state) => ({
+                      ...state,
+                      showMenu: true,
+                      outlet_category: null,
+                      currentLevel: "level2",
+                    }));
+                  } else {
+                    setState((state) => ({
+                      ...state,
+                      showMenu: true,
+                      currentLevel: "level1",
+                    }));
+                  }
+                }}
                 block
               >
                 View Menu
