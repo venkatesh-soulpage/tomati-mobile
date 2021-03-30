@@ -27,87 +27,89 @@ const Header = (props) => {
         <span className="closebtn" onClick={() => setOpen(false)}>
           &times;
         </span>
-        <Link to="/">
-          <img src={Logo} alt="logo" height="35px" width="auto" />
-        </Link>
-        <Nav>
-          <Link
-            to={
-              !isAuthenticated
-                ? "/"
-                : sessionStorage.getItem("role") !== "WAITER"
-                ? "/scanner"
-                : {
-                    pathname: "/outlet",
-                    search: `outlet_venue=${props?.outlet?.outlet?.id}`,
-                  }
-            }
-          >
-            <Nav.Item
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              <AiFillHome className="mr-4 mt-n1" />
-              Home
-            </Nav.Item>
+        <div className="nav-link">
+          <Link to="/">
+            <img src={Logo} alt="logo" height="35px" width="auto" />
           </Link>
-        </Nav>
-        <Nav>
-          {isAuthenticated ? (
-            <Link to="/scanner">
-              <Nav.Item
-                onClick={() => {
-                  setOpen(false);
-                }}
-              >
-                <AiOutlineScan className="mr-4 mt-n1" />
-                Scanner
-              </Nav.Item>
-            </Link>
-          ) : (
-            <Link to="/">
-              <Nav.Item
-                onClick={() => {
-                  setOpen(false);
-                }}
-              >
-                <AiOutlineUser className="mr-4 mt-n1" />
-                Login
-              </Nav.Item>
-            </Link>
-          )}
-        </Nav>
-        <Nav>
-          <a target="_blank" href="https://wa.me/message/HGRXRF5QIYCWH1">
-            <Nav.Item
-              onClick={() => {
-                setOpen(false);
-              }}
+          <Nav>
+            <Link
+              to={
+                !isAuthenticated
+                  ? "/"
+                  : sessionStorage.getItem("role") !== "WAITER"
+                  ? "/scanner"
+                  : {
+                      pathname: "/outlet",
+                      search: `outlet_venue=${props?.outlet?.outlet?.id}`,
+                    }
+              }
             >
-              <AiFillInfoCircle className="mr-4 mt-n1" />
-              Contact Support
-            </Nav.Item>
-          </a>
-        </Nav>
-        <Nav>
-          {isAuthenticated ? (
-            <Link to="/logout">
               <Nav.Item
                 onClick={() => {
-                  sessionStorage.clear();
-                  props.dispatch(Action.handleIsUserAuthenticated(false));
-                  props.history.push("/");
-                  props.history.go();
+                  setOpen(false);
                 }}
               >
-                <AiOutlineLogout className="mr-4 mt-n1" />
-                Logout
+                <AiFillHome className="mr-4 mt-n1" />
+                Home
               </Nav.Item>
             </Link>
-          ) : null}
-        </Nav>
-        {/* <VersioningMenu /> */}
+          </Nav>
+          <Nav>
+            {isAuthenticated ? (
+              <Link to="/scanner">
+                <Nav.Item
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <AiOutlineScan className="mr-4 mt-n1" />
+                  Scanner
+                </Nav.Item>
+              </Link>
+            ) : (
+              <Link to="/">
+                <Nav.Item
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <AiOutlineUser className="mr-4 mt-n1" />
+                  Login
+                </Nav.Item>
+              </Link>
+            )}
+          </Nav>
+          <Nav>
+            <a target="_blank" href="https://wa.me/message/HGRXRF5QIYCWH1">
+              <Nav.Item
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                <AiFillInfoCircle className="mr-4 mt-n1" />
+                Contact Support
+              </Nav.Item>
+            </a>
+          </Nav>
+          <Nav>
+            {isAuthenticated ? (
+              <Link to="/logout">
+                <Nav.Item
+                  onClick={() => {
+                    sessionStorage.clear();
+                    props.dispatch(Action.handleIsUserAuthenticated(false));
+                    props.history.push("/");
+                    props.history.go();
+                  }}
+                >
+                  <AiOutlineLogout className="mr-4 mt-n1" />
+                  Logout
+                </Nav.Item>
+              </Link>
+            ) : null}
+          </Nav>
+        </div>
+        <VersioningMenu />
       </div>
       <div
         className={
@@ -121,7 +123,7 @@ const Header = (props) => {
         <div>
           {props?.location?.pathname === "/outlet" ? (
             <a className="color-link" href="https://tomati.app/">
-              <small className="fs-11">Powered by &nbsp;</small>
+              <small className="fs-11 text-white">Powered by &nbsp;</small>
               <img
                 src={Icon}
                 alt="icon"
@@ -129,7 +131,7 @@ const Header = (props) => {
                 height="17px"
                 width="auto"
               />
-              Tomati.app
+              <span className="text-white"> Tomati.app</span>
             </a>
           ) : (
             <img src={Logo} alt="logo" height="30px" width="auto" />

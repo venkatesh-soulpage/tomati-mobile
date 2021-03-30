@@ -11,6 +11,8 @@ import AuthRoute from "./AuthRoute";
 import Login from "pages/auth/Login";
 import Outlet from "pages/Outlet";
 import QrScanner from "pages/QrScanner";
+import Terms from "pages/Terms";
+import Privacy from "pages/Privacy";
 import Header from "components/Header";
 
 function App(props) {
@@ -42,6 +44,8 @@ function App(props) {
           <AuthRoute path="/" exact component={Login} props={props} />
           <PrivateRoute path="/scanner" component={QrScanner} />
           <Route exact path="/outlet" component={Outlet} />
+          <Route exact path="/terms" component={Terms} />
+          <Route exact path="/privacy" component={Privacy} />
         </Switch>
       </Router>
     </div>
