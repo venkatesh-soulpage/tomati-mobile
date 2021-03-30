@@ -8,7 +8,7 @@ const CoverImage = ({ cover_image, logo_img, name }) => {
         alt={name}
         className="logo-img-style p-1"
         style={{
-          top: 125,
+          top: 75,
           left: 25,
         }}
         height="100px"
@@ -19,7 +19,7 @@ const CoverImage = ({ cover_image, logo_img, name }) => {
         <div
           className="heading-style w-50"
           style={{
-            top: 150,
+            top: 90,
             left: 150,
             backdropFilter: "brightness(20%)",
           }}

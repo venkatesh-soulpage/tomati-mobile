@@ -8,6 +8,7 @@ import { withRouter } from "react-router-dom";
 import Mail from "assets/images/Mail.svg";
 import Lock from "assets/images/Lock.svg";
 import AlertMessage from "components/AlertMessage";
+import Header from "components/Header";
 
 const Login = (props) => {
   const [values, setValues] = React.useState({
@@ -38,78 +39,81 @@ const Login = (props) => {
     await props.dispatch(Action.userLogin(postData));
   }
   return (
-    <div className="login-style d-flex justify-content-center align-items-center align-self-stretch ">
-      <Form onSubmit={handleLoginData} autoComplete="off">
-        <AlertMessage
-          variant="danger"
-          error={
-            props.auth.loginError && {
-              message: props.auth.loginError,
+    <>
+      <Header />
+      <div className="login-style d-flex justify-content-center align-items-center align-self-stretch ">
+        <Form onSubmit={handleLoginData} autoComplete="off">
+          <AlertMessage
+            variant="danger"
+            error={
+              props.auth.loginError && {
+                message: props.auth.loginError,
+              }
             }
-          }
-          onDismiss={() => props.dispatch(Action.handleLoginError(null))}
-        />
-        <Form.Group className="w-100">
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text className="bg-white border-right-0">
-                <img
-                  src={Mail}
-                  alt="mail"
-                  className="img-fluid"
-                  width="20"
-                  height="20"
-                />
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <Form.Control
-              className="border-left-0"
-              type="email"
-              name="email"
-              id="email"
-              value={values.email}
-              onChange={handleChange("email")}
-              placeholder="Enter email"
-              required
-            />
-          </InputGroup>
-        </Form.Group>
-        <Form.Group>
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text className="bg-white border-right-0">
-                <img
-                  src={Lock}
-                  alt="lock"
-                  className="img-fluid"
-                  width="20"
-                  height="20"
-                />
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <Form.Control
-              className="border-left-0 border-right-none"
-              name="password"
-              value={values.password}
-              onChange={handleChange("password")}
-              placeholder="Password"
-              type={values.hidden ? "password" : "text"}
-              required
-            />
-            <div className="input-group-append">
-              <div className="show-button" onClick={handlePasswordToggle}>
-                <small>{values.hidden ? "Show" : "Hide"}</small>
+            onDismiss={() => props.dispatch(Action.handleLoginError(null))}
+          />
+          <Form.Group className="w-100">
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text className="bg-white border-right-0">
+                  <img
+                    src={Mail}
+                    alt="mail"
+                    className="img-fluid"
+                    width="20"
+                    height="20"
+                  />
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                className="border-left-0"
+                type="email"
+                name="email"
+                id="email"
+                value={values.email}
+                onChange={handleChange("email")}
+                placeholder="Enter email"
+                required
+              />
+            </InputGroup>
+          </Form.Group>
+          <Form.Group>
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text className="bg-white border-right-0">
+                  <img
+                    src={Lock}
+                    alt="lock"
+                    className="img-fluid"
+                    width="20"
+                    height="20"
+                  />
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <Form.Control
+                className="border-left-0 border-right-none"
+                name="password"
+                value={values.password}
+                onChange={handleChange("password")}
+                placeholder="Password"
+                type={values.hidden ? "password" : "text"}
+                required
+              />
+              <div className="input-group-append">
+                <div className="show-button" onClick={handlePasswordToggle}>
+                  <small>{values.hidden ? "Show" : "Hide"}</small>
+                </div>
               </div>
-            </div>
-          </InputGroup>
-        </Form.Group>
-        <Form.Group className="w-100">
-          <button className="btn btn-blue w-100" type="submit">
-            Login
-          </button>
-        </Form.Group>
-      </Form>
-    </div>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group className="w-100">
+            <button className="btn btn-blue w-100" type="submit">
+              Login
+            </button>
+          </Form.Group>
+        </Form>
+      </div>
+    </>
   );
 };
 

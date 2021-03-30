@@ -1,3 +1,7 @@
+.outlet-style {
+  height: 100vh;
+}
+
 .heading-style {
   font-weight: bold;
   font-size: 20px;
@@ -9,7 +13,19 @@
   overflow: inherit;
   text-overflow: inherit;
 }
-
+.hamburger {
+  color: white;
+}
+.color-link:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+.ht-35 {
+  height: 35px;
+}
+.fs-11 {
+  font-size: 11px;
+}
 .ellipse {
   overflow: hidden;
   text-overflow: ellipsis;

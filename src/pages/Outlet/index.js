@@ -11,6 +11,7 @@ import Level1 from "./Level1";
 import Level2 from "./Level2";
 import Level3 from "./Level3";
 import Loading from "components/Loading";
+import Header from "components/Header";
 
 const Index = (props) => {
   const [state, setState] = React.useState({
@@ -100,7 +101,7 @@ const Index = (props) => {
   }
 
   return (
-    <div className="login-style black-background ">
+    <div className="outlet-style black-background ">
       <div>
         {cover_image ? (
           <>
@@ -114,7 +115,9 @@ const Index = (props) => {
           <div className="no-image">No Image</div>
         )}
         <div className="p-2">
-          <div className="heading-style">{name}</div>
+          <div className="hamburger">
+            <Header />
+          </div>
 
           {!showMenu ? (
             <>
