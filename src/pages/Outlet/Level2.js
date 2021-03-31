@@ -22,8 +22,7 @@ const Level2 = ({ product_menu, setState, state }) => {
           </Button>
         ))}
         <Button
-          appearance="primary"
-          className="w-100 mt-3"
+          className="w-100 mt-3 btn-danger"
           onClick={() =>
             setState((state) => ({
               ...state,

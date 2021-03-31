@@ -16,6 +16,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import * as Action from "_actions";
 import VersioningMenu from "components/VersioningMenu";
+import { TOMATI_APP_URL } from "constants/APIRoutes";
 
 const Header = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -125,8 +126,8 @@ const Header = (props) => {
         </div>
         <div>
           {props?.location?.pathname === "/outlet" ? (
-            <a className="color-link" href="https://tomati.app/">
-              <small className="fs-11 text-white">Powered by &nbsp;</small>
+            <a className="color-link" href={TOMATI_APP_URL}>
+              <small className="fs-11 font-italic">powered by &nbsp;</small>
               <img
                 src={Icon}
                 alt="icon"
@@ -134,7 +135,10 @@ const Header = (props) => {
                 height="15px"
                 width="auto"
               />
-              <small className="fs-11 text-white"> Tomati.app</small>
+              &nbsp;
+              <small className="fs-11">
+                <u>Tomati.app</u>
+              </small>
             </a>
           ) : (
             <img src={Logo} alt="logo" height="30px" width="auto" />
