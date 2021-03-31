@@ -107,7 +107,7 @@ const Login = (props) => {
             </InputGroup>
           </Form.Group>
           <Form.Group className="w-100">
-            <button className="btn btn-blue w-100" type="submit">
+            <button className="btn btn-dark w-100" type="submit">
               Login
             </button>
           </Form.Group>

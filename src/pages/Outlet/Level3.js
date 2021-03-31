@@ -47,8 +47,7 @@ const Level3 = ({
         </div>
       </div>
       <Button
-        appearance="primary"
-        className="w-100 mt-3"
+        className="w-100 mt-3 btn-danger"
         onClick={() =>
           setState((state) => ({
             ...state,

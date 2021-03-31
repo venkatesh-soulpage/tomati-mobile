@@ -17,7 +17,7 @@ const CoverImage = ({ cover_image, logo_img, name }) => {
       />
       <div className="ellipse">
         <div
-          className="heading-style w-50"
+          className="heading-style px-1"
           style={{
             top: 90,
             left: 150,

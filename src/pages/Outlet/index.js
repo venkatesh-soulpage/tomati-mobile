@@ -114,73 +114,74 @@ const Index = (props) => {
         ) : (
           <div className="no-image">No Image</div>
         )}
-        <div className="p-2">
+        <div>
           <div className="hamburger">
             <Header />
           </div>
+          <div className="p-2">
+            {!showMenu ? (
+              <>
+                <div className="text-white mt-3">{location.name}</div>
+                <hr className="hr" />
+                <p className="description-style">{description}</p>
 
-          {!showMenu ? (
-            <>
-              <div className="text-white mt-5">{location.name}</div>
-              <hr className="hr" />
-              <p className="description-style">{description}</p>
-
-              <Button
-                className="btn-v"
-                onClick={() => {
-                  if (!filtered_menu[0].outlet_category) {
-                    setState((state) => ({
-                      ...state,
-                      showMenu: true,
-                      outlet_category: null,
-                      currentLevel: "level2",
-                    }));
-                  } else {
-                    setState((state) => ({
-                      ...state,
-                      showMenu: true,
-                      currentLevel: "level1",
-                    }));
-                  }
-                }}
-                block
-              >
-                View Menu
-              </Button>
-            </>
-          ) : (
-            <>
-              <div className="d-block w-100 mt-5">
-                {
+                <Button
+                  className="btn-v"
+                  onClick={() => {
+                    if (!filtered_menu[0].outlet_category) {
+                      setState((state) => ({
+                        ...state,
+                        showMenu: true,
+                        outlet_category: null,
+                        currentLevel: "level2",
+                      }));
+                    } else {
+                      setState((state) => ({
+                        ...state,
+                        showMenu: true,
+                        currentLevel: "level1",
+                      }));
+                    }
+                  }}
+                  block
+                >
+                  View Menu
+                </Button>
+              </>
+            ) : (
+              <>
+                <div className="d-block w-100 mt-3">
                   {
-                    level1: (
-                      <Level1
-                        outlet_menu={outlet_menu}
-                        setState={setState}
-                        state={state}
-                      />
-                    ),
-                    level2: (
-                      <Level2
-                        product_menu={product_menu}
-                        setState={setState}
-                        state={state}
-                      />
-                    ),
-                    level3: (
-                      <Level3
-                        filtered_menu={filtered_menu}
-                        menu_category={menu_category}
-                        setState={setState}
-                        state={state}
-                        items_list={items_list}
-                      />
-                    ),
-                  }[currentLevel]
-                }
-              </div>
-            </>
-          )}
+                    {
+                      level1: (
+                        <Level1
+                          outlet_menu={outlet_menu}
+                          setState={setState}
+                          state={state}
+                        />
+                      ),
+                      level2: (
+                        <Level2
+                          product_menu={product_menu}
+                          setState={setState}
+                          state={state}
+                        />
+                      ),
+                      level3: (
+                        <Level3
+                          filtered_menu={filtered_menu}
+                          menu_category={menu_category}
+                          setState={setState}
+                          state={state}
+                          items_list={items_list}
+                        />
+                      ),
+                    }[currentLevel]
+                  }
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
