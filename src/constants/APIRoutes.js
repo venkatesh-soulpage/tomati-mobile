@@ -21,3 +21,10 @@ export const GET_USER = "/api/accounts/me";
 
 //outlet
 export const GET_OUTLET = "/api/outletvenues";
+
+export const TOMATI_APP_URL =
+  process.env.REACT_APP_AWS === "true"
+    ? "https://tomati.app/"
+    : process.env.REACT_APP_AWS_STAGING
+    ? "https://staging.tomati.app/"
+    : "https://localhost:3001";

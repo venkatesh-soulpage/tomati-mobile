@@ -8,6 +8,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import Logo from "assets/images/Logo.svg";
+import LogoWhite from "assets/images/LogoWhite.svg";
 import Icon from "assets/images/favicon.ico";
 // Redux
 import { connect } from "react-redux";
@@ -15,6 +16,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import * as Action from "_actions";
 import VersioningMenu from "components/VersioningMenu";
+import { TOMATI_APP_URL } from "constants/APIRoutes";
 
 const Header = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -24,13 +26,15 @@ const Header = (props) => {
   return (
     <>
       <div id="mySidenav" className={open ? "sidenav w-90" : "sidenav"}>
-        <span className="closebtn" onClick={() => setOpen(false)}>
+        <span className="closebtn text-white" onClick={() => setOpen(false)}>
           &times;
         </span>
-        <div className="nav-link">
-          <Link to="/">
-            <img src={Logo} alt="logo" height="35px" width="auto" />
-          </Link>
+        <div className="nav-link p-0">
+          <div className="bg-dark">
+            <Link to="/">
+              <img src={LogoWhite} alt="logo" height="35px" width="auto" />
+            </Link>
+          </div>
           <Nav>
             <Link
               to={
@@ -122,16 +126,19 @@ const Header = (props) => {
         </div>
         <div>
           {props?.location?.pathname === "/outlet" ? (
-            <a className="color-link" href="https://tomati.app/">
-              <small className="fs-11 text-white">Powered by &nbsp;</small>
+            <a className="color-link" href={TOMATI_APP_URL}>
+              <small className="fs-11 font-italic">powered by &nbsp;</small>
               <img
                 src={Icon}
                 alt="icon"
-                className="d-inline-block align-top mt-1"
-                height="17px"
+                className="d-inline-block mt-1"
+                height="15px"
                 width="auto"
               />
-              <span className="text-white"> Tomati.app</span>
+              &nbsp;
+              <small className="fs-11">
+                <u>Tomati.app</u>
+              </small>
             </a>
           ) : (
             <img src={Logo} alt="logo" height="30px" width="auto" />
