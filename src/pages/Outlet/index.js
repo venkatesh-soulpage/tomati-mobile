@@ -73,7 +73,7 @@ const Index = (props) => {
     null
   );
 
-  if (outlet_menu) {
+  if (outlet_menu.length > 0) {
     const items = _.filter(menu, { outlet_category });
 
     product_menu = _.without(
