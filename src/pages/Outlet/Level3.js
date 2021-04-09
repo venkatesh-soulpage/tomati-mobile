@@ -12,8 +12,8 @@ const Level3 = ({
 }) => {
   return (
     <div>
-      <div className="w-100">
-        <div className="tag-group">
+      <div className="bg-dark pt-3 div-sticky">
+        <div className=" w-100 tag-group">
           {_.without(
             _.map(_.uniqBy(filtered_menu, "menu_category"), "menu_category"),
             "",
@@ -45,20 +45,21 @@ const Level3 = ({
             </>
           ))}
         </div>
+        <Button
+          className="w-100 mt-3 btn-danger"
+          onClick={() =>
+            setState((state) => ({
+              ...state,
+              menu_category: null,
+              product_category: null,
+              currentLevel: "level2",
+            }))
+          }
+        >
+          Back
+        </Button>
       </div>
-      <Button
-        className="w-100 mt-3 btn-danger"
-        onClick={() =>
-          setState((state) => ({
-            ...state,
-            menu_category: null,
-            product_category: null,
-            currentLevel: "level2",
-          }))
-        }
-      >
-        Back
-      </Button>
+
       <div className="menu-style">
         {items_list.map((item, index) => {
           return (
