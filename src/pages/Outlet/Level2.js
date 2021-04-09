@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 const Level2 = ({ product_menu, setState, state }) => {
   return (
-    <div>
+    <div className="mt-3">
       <p>
         {product_menu.map((item, index) => (
           <Button

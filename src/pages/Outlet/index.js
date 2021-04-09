@@ -150,7 +150,7 @@ const Index = (props) => {
               </>
             ) : (
               <>
-                <div className="d-block w-100 mt-3">
+                <div className="d-block w-100">
                   {
                     {
                       level1: (

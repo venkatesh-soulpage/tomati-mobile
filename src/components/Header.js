@@ -118,14 +118,14 @@ const Header = (props) => {
       <div
         className={
           "d-flex align-items-center justify-content-between " +
-          (props?.location?.pathname === "/outlet" ? "ht-35" : "header-style")
+          (props?.match?.path === "/outlet" ? "ht-35" : "header-style")
         }
       >
         <div className="menu" onClick={() => setOpen(true)}>
           &#9776;
         </div>
         <div>
-          {props?.location?.pathname === "/outlet" ? (
+          {props?.match?.path === "/outlet" ? (
             <a className="color-link" href={TOMATI_APP_URL}>
               <small className="fs-11 font-italic">powered by &nbsp;</small>
               <img
