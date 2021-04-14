@@ -8,7 +8,7 @@
   color: white;
   letter-spacing: -0.02em;
   height: auto;
-  z-index: 999;
+  z-index: 9;
   position: absolute;
   overflow: inherit;
   text-overflow: inherit;
@@ -37,7 +37,7 @@
 
 .logo-img-style {
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   border-radius: 50%;
   background: #fff;
 }
@@ -63,7 +63,7 @@
 .div-sticky {
   position: sticky;
   top: 0;
-  z-index: 9999999999999;
+  z-index: 9;
 }
 
 .menu-div {
