@@ -36,11 +36,11 @@ const Index = (props) => {
     props.dispatch(Action.getOutlet(query.get("outlet_venue")));
   }, []);
   const { outlet } = props.outlet;
-  if (props?.outlet?.isFetching || !outlet) {
-    return <Loading textSecondary={true} />;
-  }
   if (props?.outlet?.error) {
     return <div>Invalid Venue</div>;
+  }
+  if (props?.outlet?.isFetching || !outlet) {
+    return <Loading textSecondary={true} />;
   }
   const { name, description, menu, cover_image, logo_img, location } = outlet;
   // Outlet Menu Category
